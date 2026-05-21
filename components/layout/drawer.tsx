@@ -7,7 +7,7 @@ import Link from "next/link";
 const DrawerComponent = () => {
   const [open, setOpen] = useState<boolean>(false);
   return (
-    <div className="md:block hidden">
+    <div className="block lg:hidden">
       <div className="text-center">
         <button onClick={() => setOpen(!open)} className="p-2">
           <svg
