@@ -4,6 +4,7 @@ import cookies from "next-cookies";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import DrawerComponent from "./drawer";
 
 interface props {
   title: string;
@@ -25,8 +26,8 @@ const LayoutComponent = ({ children, title }: props) => {
   useEffect(() => {}, []);
   return (
     <div className="bg-white h-screen text-black">
-      <div className="grid grid-cols-5 gap-4">
-        <div className="h-screen shadow">
+      <div className="grid lg:grid-cols-5 grid-cols-1 gap-4">
+        <div className="h-screen shadow lg:block hidden">
           <div className="py-6 px-4">
             <div className="flex justify-center p-4">
               <Image
@@ -52,10 +53,13 @@ const LayoutComponent = ({ children, title }: props) => {
             </div>
           </div>
         </div>
-        <div className="col-span-4 h-full flex flex-col gap-4 pr-4">
+        <div className="col-span-4 h-full flex flex-col gap-4 pr-4 lg:pl-0 pl-4">
           <div className="pt-4">
             <div className="rounded-lg shadow border border-gray-200 px-6 py-4 flex justify-between items-center">
-              <p>{title ?? "Layanan KOMDIGI"}</p>
+              <div className=" flex items-center gap-4">
+                <DrawerComponent />
+                <p>{title ?? "Layanan KOMDIGI"}</p>
+              </div>
 
               {/* <SignOutButton>
                 <button className="flex items-center gap-2 px-4 py-1.5 rounded-xl text-white  bg-red-500">
@@ -81,7 +85,7 @@ const LayoutComponent = ({ children, title }: props) => {
               <UserButton />
             </div>
           </div>
-          <div className="shadow flex-1 border">{children}</div>
+          <div className="shadow flex-1 rounded-lg h-full">{children}</div>
         </div>
       </div>
     </div>
