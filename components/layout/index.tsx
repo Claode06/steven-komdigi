@@ -11,8 +11,7 @@ interface props {
   children: any;
 }
 
-const LayoutComponent = ({ children, title }: props) => {
-  const listMenu = [
+export const listMenu = [
     {
       name: "Dashboard",
       link: "/dashboard",
@@ -22,6 +21,9 @@ const LayoutComponent = ({ children, title }: props) => {
       link: "/service",
     },
   ];
+
+const LayoutComponent = ({ children, title }: props) => {
+  
 
   useEffect(() => {}, []);
   return (
